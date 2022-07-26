@@ -1,8 +1,8 @@
 <?php
 require_once("PaytmChecksum.php");
 include 'paytm_credentials.php';
-// $amount = $_POST["amount"]; 
-$amount = 20;
+$amount = $_POST["amount"]; 
+// $amount = 20;
 $paytmParams = array();
 $orderId = "ORDERID_".mt_rand(); // generate order id
 $paytmParams["body"] = array(
@@ -51,9 +51,9 @@ if($res_json["body"]["resultInfo"]["resultCode"] == "0000"){ // 0000 means succe
     $response["mid"] = $merchantId;
     $response["txnToken"]= $res_json["body"]["txnToken"];
     $response["orderId"] = $orderId;
-    $response["res"] = $res;
-    $response["paytm"]= $paytmParams;
-    $response["key"]=$merchantKey;
+//     $response["res"] = $res;
+//     $response["paytm"]= $paytmParams;
+//     $response["key"]=$merchantKey;
 echo json_encode($response);
 
 }else{
